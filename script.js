@@ -4,10 +4,12 @@ import env from "dotenv";
 import jwt from "jsonwebtoken";
 import cookie from "cookie-parser";
 import auth from "./authentication/authentication.js";
+import cors from "cors";
 
 const app = express();
 app.use(express.json());
 app.use(cookie());
+app.use(cors({ methods: ["GET", "POST", "PUT", "DELETE"], credentials: true }));
 
 env.config({
   path: "./config.env",
