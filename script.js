@@ -8,7 +8,11 @@ import cors from "cors";
 
 const app = express();
 app.use(express.json());
-app.use(cookie());
+app.use(
+  cookie({
+    HttpOnly: false,
+  })
+);
 app.use(cors({ methods: ["GET", "POST", "PUT", "DELETE"], credentials: true }));
 
 env.config({
